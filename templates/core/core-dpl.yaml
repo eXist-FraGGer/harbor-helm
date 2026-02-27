@@ -58,6 +58,10 @@ spec:
             component: core
 {{- end }}
 {{- end }}
+      {{- with .Values.core.hostAliases }}
+      hostAliases:
+{{ toYaml . | indent 8 }}
+      {{- end }}
       {{- with .Values.core.initContainers }}
       initContainers:
         {{- toYaml . | nindent 8 }}

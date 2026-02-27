@@ -55,6 +55,10 @@ spec:
             component: portal
 {{- end }}
 {{- end }}
+      {{- with .Values.portal.hostAliases }}
+      hostAliases:
+{{ toYaml . | indent 8 }}
+      {{- end }}
       {{- with .Values.portal.initContainers }}
       initContainers:
         {{- toYaml . | nindent 8 }}

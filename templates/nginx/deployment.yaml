@@ -58,6 +58,10 @@ spec:
             component: nginx
 {{- end }}
 {{- end }}
+      {{- with .Values.nginx.hostAliases }}
+      hostAliases:
+{{ toYaml . | indent 8 }}
+      {{- end }}
       containers:
       - name: nginx
         image: "{{ .Values.nginx.image.repository }}:{{ .Values.nginx.image.tag }}"

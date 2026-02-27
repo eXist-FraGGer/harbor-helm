@@ -64,6 +64,10 @@ spec:
             component: jobservice
 {{- end }}
 {{- end }}
+      {{- with .Values.jobservice.hostAliases }}
+      hostAliases:
+{{ toYaml . | indent 8 }}
+      {{- end }}
       {{- with .Values.jobservice.initContainers }}
       initContainers:
         {{- toYaml . | nindent 8 }}

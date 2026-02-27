@@ -57,6 +57,10 @@ spec:
             component: exporter
 {{- end }}
 {{- end }}
+      {{- with .Values.exporter.hostAliases }}
+      hostAliases:
+{{ toYaml . | indent 8 }}
+      {{- end }}
       containers:
       - name: exporter
         image: {{ .Values.exporter.image.repository }}:{{ .Values.exporter.image.tag }}

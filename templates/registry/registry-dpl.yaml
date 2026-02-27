@@ -67,6 +67,10 @@ spec:
             component: registry
 {{- end }}
 {{- end }}
+      {{- with .Values.registry.hostAliases }}
+      hostAliases:
+{{ toYaml . | indent 8 }}
+      {{- end }}
       {{- with .Values.registry.initContainers }}
       initContainers:
         {{- toYaml . | nindent 8 }}
